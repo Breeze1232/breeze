@@ -107,32 +107,3 @@ input[type="range"]::-moz-range-thumb {
     margin-top: 20px;  /* Espaciado entre la barra de volumen y otros elementos */
 }
 
-/* Estilo para la barra de volumen */
-.volume {
-    width: 80%;
-    height: 5px;
-    background: #333;
-    border-radius: 5px;
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-    margin-top: 10px;
-}
-
-.volume::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: #1DB954;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.volume::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background: #1DB954;
-    border-radius: 50%;
-    cursor: pointer;
-}
