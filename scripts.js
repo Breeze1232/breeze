@@ -60,44 +60,49 @@ const songListToggle = document.getElementById("songListToggle");
 const songList = document.getElementById("songList");
 
 songListToggle.addEventListener("click", () => {
-    songList.style.display = songList.style.display === "block" ? "none" : "block"; // Alternar entre mostrar y ocultar la lista
-});
-
-// Función para cerrar la lista
-const closeSongListBtn = document.getElementById("closeSongList");
-
-closeSongListBtn.addEventListener("click", () => {
-    songList.style.display = "none"; // Cerrar la lista de canciones
+    songList.classList.toggle("visible"); // Alternar la clase 'visible'
 });
 
 // Función para filtrar canciones por nombre
 function filterSongs() {
     const searchQuery = document.getElementById("songSearch").value.toLowerCase();
     const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(searchQuery));
-
-    // Actualizar la lista de canciones filtradas
-    const songListItems = document.getElementById("songListItems");
-    songListItems.innerHTML = ""; // Limpiar la lista
-
-    filteredSongs.forEach(song => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${song.title} - ${song.artist}`;
-        listItem.addEventListener("click", () => {
-            currentSongIndex = songs.indexOf(song);
-            playSong(currentSongIndex);
-            songList.style.display = "none"; // Cerrar la lista cuando seleccionamos una canción
-        });
-        songListItems.appendChild(listItem);
-    });
+    displaySongs(filteredSongs);
 }
 
-// Mostrar todos los artistas en el listado
-const artistListItems = document.getElementById("artistListItems");
-const artists = [...new Set(songs.map(song => song.artist))]; // Obtener una lista única de artistas
+// Mostrar todas las canciones en la lista
+function displaySongs(songsToDisplay) {
+    const songListItems = document.getElementById("songListItems");
+    songListItems.innerHTML = ""; // Limpiar lista
 
-artists.forEach(artist => {
-    const listItem = document.createElement("li");
-    listItem.textContent = artist;
-    artistListItems.appendChild(listItem);
-});
+    songsToDisplay.forEach(song => {
+        const li = document.createElement("li");
+        li.textContent = song.title;
+        li.addEventListener("click", () => {
+            const index = songs.indexOf(song);
+            playSong(index);
+        });
+        songListItems.appendChild(li);
+}
+
+// Mostrar todos los artistas
+function displayArtists() {
+    const artistsList = document.getElementById("artistListItems");
+    const artists = [...new Set(songs.map(song => song.artist))]; // Filtrar artistas únicos
+
+    artistsList.innerHTML = ""; // Limpiar lista
+
+    artists.forEach(artist => {
+        const li = document.createElement("li");
+        li.textContent = artist;
+        li.addEventListener("click", () => {
+            const filteredByArtist = songs.filter(song => song.artist === artist);
+            displaySongs(filteredByArtist);
+        });
+        artistsList.appendChild(li);
+}
+
+// Inicializar las listas
+displaySongs(songs);
+displayArtists();
 
