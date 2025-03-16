@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RadioAG</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="Icon.png"style="image/icon">
+    <link rel="icon" href="Icon.png" style="image/icon">
 </head>
 <body>
     <div>
         <h1>Bienvenido a tu reproductor de música</h1>
     </div>
     <h2>Una radio random, un proyecto a futuro</h2>
-
 
     <!-- Nombre de la canción -->
     <h3 id="songTitle">Yo era seguidor de la grasa</h3>
@@ -31,6 +30,23 @@
         <input type="range" id="progress" min="0" max="100" value="0">
     </div>
 
+    <!-- Mini botón para abrir la lista de canciones -->
+    <button id="songListToggle">🎵 Ver Canciones</button>
+
+    <!-- Pestaña con la lista de canciones y búsqueda -->
+    <div id="songList" class="song-list">
+        <input type="text" id="songSearch" placeholder="Buscar canción..." oninput="filterSongs()">
+        
+        <!-- Sección de listado por artistas -->
+        <div id="artistsList">
+            <h4>Artistas:</h4>
+            <ul id="artistListItems"></ul>
+        </div>
+
+        <!-- Listado de canciones -->
+        <h4>Lista de Canciones:</h4>
+        <ul id="songListItems"></ul>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
