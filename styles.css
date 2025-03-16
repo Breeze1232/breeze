@@ -102,8 +102,64 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     cursor: pointer;
 }
-/* Estilo para el contenedor de la barra de volumen */
-.volume-container {
-    margin-top: 20px;  /* Espaciado entre la barra de volumen y otros elementos */
+
+/* Estilo para el contenedor de la lista de canciones */
+.song-list {
+    display: none; /* Por defecto está oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 10;
+    text-align: left;
+}
+
+.song-list input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.song-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.song-list li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+
+.song-list li:hover {
+    background-color: #444;
+}
+
+/* Estilo para el listado de artistas */
+#artistsList {
+    margin-top: 20px;
+}
+
+#artistListItems {
+    list-style-type: none;
+    padding: 0;
+}
+
+#artistListItems li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#artistListItems li:hover {
+    background-color: #444;
 }
 
