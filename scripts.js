@@ -6,12 +6,12 @@ const skipForwardBtn = document.getElementById("skipForward");
 const progress = document.getElementById("progress");
 const songTitle = document.getElementById("songTitle");
 
-// Lista de canciones con sus títulos
+// Lista de canciones con sus títulos y artistas
 const songs = [
-    { title: "Yo era seguidor de la grasa", src: "esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" },
-    { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" },
-    { title: "Aishite Aishite Aishite - ado", src: "Aishite Aishite Aishite - Ado.mp3" },
-    { title: "unravel - tk from ling tosite sigure", src: "unravel - tk from ling tosite sigure.mp3" },
+    { title: "Yo era seguidor de la grasa", src: "esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3", artist: "xTwo" },
+    { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3", artist: "Imagine Dragons" },
+    { title: "Aishite Aishite Aishite - ado", src: "Aishite Aishite Aishite - Ado.mp3", artist: "Ado" },
+    { title: "unravel - tk from ling tosite sigure", src: "unravel - tk from ling tosite sigure.mp3", artist: "tk from ling tosite sigure" },
 ];
 
 let currentSongIndex = 0; // Índice de la canción actual
@@ -51,18 +51,60 @@ skipForwardBtn.addEventListener("click", () => {
 audio.addEventListener("timeupdate", () => {
     if (audio.duration) {
         const progressValue = (audio.currentTime / audio.duration) * 100;
-        progress.value = progressValue; // Actualizar el valor del rango
+        progress.value = progressValue;
     }
 });
 
-// Cambiar el tiempo de reproducción del audio al mover el rango
-progress.addEventListener("input", () => {
-    audio.currentTime = (progress.value / 100) * audio.duration;
+// Función para abrir/ocultar la lista de canciones
+const songListToggle = document.getElementById("songListToggle");
+const songList = document.getElementById("songList");
+
+songListToggle.addEventListener("click", () => {
+    songList.style.display = songList.style.display === "block" ? "none" : "block"; // Alternar entre mostrar y ocultar la lista
 });
 
-// Cuando la canción termine, ponerla en pausa
-audio.addEventListener("ended", () => {
-    playPauseBtn.textContent = "▶️"; // Cambiar el texto del botón a 'Reproducir'
-    progress.value = 0; // Resetear la barra de progreso
-    audio.pause(); // Poner el audio en pausa
-});
+// Función para filtrar canciones por nombre
+function filterSongs() {
+    const searchQuery = document.getElementById("songSearch").value.toLowerCase();
+    const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(searchQuery));
+    displaySongs(filteredSongs);
+}
+
+// Mostrar todas las canciones en la lista
+function displaySongs(songsToDisplay) {
+    const songListItems = document.getElementById("songListItems");
+    songListItems.innerHTML = ""; // Limpiar lista
+
+    songsToDisplay.forEach(song => {
+        const li = document.createElement("li");
+        li.textContent = song.title;
+        li.addEventListener("click", () => {
+            const index = songs.indexOf(song);
+            playSong(index);
+        });
+        songListItems.appendChild(li);
+    });
+}
+
+// Mostrar todos los artistas
+function displayArtists() {
+    const artistsList = document.getElementById("artistListItems");
+    const artists = [...new Set(songs.map(song => song.artist))]; // Filtrar artistas únicos
+
+    artistsList.innerHTML = ""; // Limpiar lista
+
+    artists.forEach(artist => {
+        const li = document.createElement("li");
+        li.textContent = artist;
+        li.addEventListener("click", () => {
+            const filteredByArtist = songs.filter(song => song.artist === artist);
+            displaySongs(filteredByArtist);
+        });
+        artistsList.appendChild(li);
+    });
+}
+
+// Inicializar las listas
+displaySongs(songs);
+displayArtists();
+
