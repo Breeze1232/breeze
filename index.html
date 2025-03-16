@@ -8,11 +8,28 @@
 </head>
 <body>
     <div>
-        <h1>Bienvenido a tu reproductor de musica</h1>
+        <h1>Bienvenido a tu reproductor de música</h1>
     </div>
-    <h2>Estamos conectados con spotify</h2>
+    <h2>Estamos conectados con Spotify</h2>
     <p>Yo era seguidos de la grasa - :v</p>
-    <button onclick="playMusic()">Reproducir Canción</button>
+
+    <!-- Nombre de la canción -->
+    <h3 id="songTitle">Yo era seguidor de la grasa</h3>
+
+    <!-- Contenedor de botones -->
+    <div class="button-container">
+        <button id="skipBack">⏪</button>
+        <button id="playPauseBtn">▶️</button>
+        <button id="skipForward">⏩</button>
+    </div>
+
     <audio id="song" src="esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3"></audio>
+
+    <!-- Barra de progreso -->
+    <div class="progress">
+        <input type="range" id="progress" min="0" max="100" value="0">
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
