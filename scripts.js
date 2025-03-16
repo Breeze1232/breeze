@@ -9,7 +9,8 @@ const songTitle = document.getElementById("songTitle");
 // Lista de canciones con sus títulos
 const songs = [
     { title: "Yo era seguidor de la grasa", src: "esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" },
-    { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" }
+    { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" },
+    { title: "Aishite Aishite Aishite - ado", src: "Aishite Aishite Aishite - Ado.mp3" }
 ];
 
 let currentSongIndex = 0; // Índice de la canción actual
