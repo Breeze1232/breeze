@@ -5,7 +5,7 @@ const skipBackBtn = document.getElementById("skipBack");
 const skipForwardBtn = document.getElementById("skipForward");
 const progress = document.getElementById("progress");
 const songTitle = document.getElementById("songTitle");
-const songListToggle = document.getElementById("songListToggle");
+const songListToggle = document.getElementById("songListToggle"); 
 const songList = document.getElementById("songList");
 const closeSongListBtn = document.getElementById("closeSongList");
 
@@ -73,3 +73,47 @@ songListToggle.addEventListener("click", () => {
 closeSongListBtn.addEventListener("click", () => {
     songList.classList.remove("visible");
 });
+
+// Función para llenar la lista de canciones y artistas en el HTML
+function fillSongList() {
+    const songListItems = document.getElementById("songListItems");
+    const artistListItems = document.getElementById("artistListItems");
+
+    songs.forEach(song => {
+        // Crear un elemento de lista para cada canción
+        const songItem = document.createElement("li");
+        songItem.textContent = `${song.title} - ${song.artist}`;
+        songItem.addEventListener("click", () => {
+            const songElement = document.getElementById("song");
+            songElement.src = song.src;
+            songElement.play();
+            songTitle.textContent = song.title;
+            playPauseBtn.textContent = "⏸️"; // Cambiar texto a Pausar
+        });
+        songListItems.appendChild(songItem);
+
+        // Crear un elemento de lista para cada artista
+        const artistItem = document.createElement("li");
+        artistItem.textContent = song.artist;
+        artistItem.addEventListener("click", () => {
+            const artistSongs = songs.filter(s => s.artist === song.artist);
+            songListItems.innerHTML = ""; // Limpiar la lista actual
+            artistSongs.forEach(artistSong => {
+                const artistSongItem = document.createElement("li");
+                artistSongItem.textContent = `${artistSong.title} - ${artistSong.artist}`;
+                artistSongItem.addEventListener("click", () => {
+                    const songElement = document.getElementById("song");
+                    songElement.src = artistSong.src;
+                    songElement.play();
+                    songTitle.textContent = artistSong.title;
+                    playPauseBtn.textContent = "⏸️"; // Cambiar texto a Pausar
+                });
+                songListItems.appendChild(artistSongItem);
+            });
+        });
+        artistListItems.appendChild(artistItem);
+    });
+}
+
+// Llamar a la función para llenar la lista de canciones al cargar la página
+fillSongList();
