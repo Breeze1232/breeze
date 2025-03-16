@@ -68,3 +68,11 @@ audio.addEventListener("ended", () => {
 
 // Iniciar la primera canción
 playSong(currentSongIndex);
+
+// Control de volumen
+const volumeControl = document.getElementById("volume");
+
+volumeControl.addEventListener("input", function() {
+    audio.volume = volumeControl.value / 100;  // El valor de 0 a 100 lo convierte en un número entre 0 y 1
+});
+
