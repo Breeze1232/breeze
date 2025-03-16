@@ -11,7 +11,7 @@ const songs = [
     { title: "Yo era seguidor de la grasa", src: "esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" },
     { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" },
     { title: "Aishite Aishite Aishite - ado", src: "Aishite Aishite Aishite - Ado.mp3" },
-     { title: "unravel - tk from ling tosite sigure", src: "unravel - tk from ling tosite sigure.mp3" },
+    { title: "unravel - tk from ling tosite sigure", src: "unravel - tk from ling tosite sigure.mp3" },
 ];
 
 let currentSongIndex = 0; // Índice de la canción actual
@@ -60,12 +60,9 @@ progress.addEventListener("input", () => {
     audio.currentTime = (progress.value / 100) * audio.duration;
 });
 
-// Resetear la barra de progreso cuando la canción termine
+// Cuando la canción termine, ponerla en pausa
 audio.addEventListener("ended", () => {
-    playPauseBtn.textContent = "▶️ "; // Restaurar el texto del botón
-    progress.value = 0; // Resetear el progreso
-    skipForwardBtn.click(); // Reproducir la siguiente canción automáticamente cuando termine
+    playPauseBtn.textContent = "▶️"; // Cambiar el texto del botón a 'Reproducir'
+    progress.value = 0; // Resetear la barra de progreso
+    audio.pause(); // Poner el audio en pausa
 });
-
-// Iniciar la primera canción
-playSong(currentSongIndex);
