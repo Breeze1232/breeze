@@ -5,6 +5,9 @@ const skipBackBtn = document.getElementById("skipBack");
 const skipForwardBtn = document.getElementById("skipForward");
 const progress = document.getElementById("progress");
 const songTitle = document.getElementById("songTitle");
+const songListToggle = document.getElementById("songListToggle");
+const songList = document.getElementById("songList");
+const closeSongListBtn = document.getElementById("closeSongList");
 
 // Lista de canciones con sus títulos y artistas
 const songs = [
@@ -50,4 +53,23 @@ skipForwardBtn.addEventListener("click", () => {
 // Actualizar la barra de progreso a medida que el audio se reproduce
 audio.addEventListener("timeupdate", () => {
     if (audio.duration) {
-        const progressValue = (audio.currentTime
+        const progressValue = (audio.currentTime / audio.duration) * 100;
+        progress.value = progressValue;
+    }
+});
+
+// Permite cambiar la posición de la canción con la barra de progreso
+progress.addEventListener("input", () => {
+    const progressValue = progress.value * audio.duration / 100;
+    audio.currentTime = progressValue;
+});
+
+// Abrir o cerrar la lista de canciones
+songListToggle.addEventListener("click", () => {
+    songList.classList.toggle("visible");
+});
+
+// Cerrar la lista de canciones
+closeSongListBtn.addEventListener("click", () => {
+    songList.classList.remove("visible");
+});
