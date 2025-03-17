@@ -10,7 +10,11 @@ const songList = document.getElementById("songList");
 const closeSongListBtn = document.getElementById("closeSongList");
 const songSearch = document.getElementById("songSearch"); // Campo de búsqueda
 
-// Lista de canciones con sus títulos y artistas
+// Mostrar tiempos
+const currentTimeDisplay = document.getElementById("currentTime");
+const totalDurationDisplay = document.getElementById("totalDuration");
+
+// Lista de canciones
 const songs = [
     { title: "Yo era seguidor de la grasa", src: "esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3", artist: "xTwo" },
     { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3", artist: "Imagine Dragons" },
@@ -51,11 +55,21 @@ skipForwardBtn.addEventListener("click", () => {
     playSong(currentSongIndex);
 });
 
-// Actualizar la barra de progreso a medida que el audio se reproduce
+// Actualizar la barra de progreso y los tiempos
 audio.addEventListener("timeupdate", () => {
     if (audio.duration) {
         const progressValue = (audio.currentTime / audio.duration) * 100;
         progress.value = progressValue;
+
+        // Mostrar el tiempo transcurrido
+        const currentMinutes = Math.floor(audio.currentTime / 60);
+        const currentSeconds = Math.floor(audio.currentTime % 60);
+        currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+
+        // Mostrar la duración total
+        const totalMinutes = Math.floor(audio.duration / 60);
+        const totalSeconds = Math.floor(audio.duration % 60);
+        totalDurationDisplay.textContent = `${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
     }
 });
 
@@ -63,6 +77,12 @@ audio.addEventListener("timeupdate", () => {
 progress.addEventListener("input", () => {
     const progressValue = progress.value * audio.duration / 100;
     audio.currentTime = progressValue;
+});
+
+// Cuando la canción termine, avanzar a la siguiente
+audio.addEventListener("ended", () => {
+    currentSongIndex = (currentSongIndex === songs.length - 1) ? 0 : currentSongIndex + 1; // Si estamos en la última canción, avanzamos a la primera
+    playSong(currentSongIndex);
 });
 
 // Abrir o cerrar la lista de canciones
@@ -85,11 +105,7 @@ function fillSongList() {
         const songItem = document.createElement("li");
         songItem.textContent = `${song.title} - ${song.artist}`;
         songItem.addEventListener("click", () => {
-            const songElement = document.getElementById("song");
-            songElement.src = song.src;
-            songElement.play();
-            songTitle.textContent = song.title;
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
+            playSong(songs.indexOf(song));
         });
         songListItems.appendChild(songItem);
 
@@ -103,11 +119,7 @@ function fillSongList() {
                 const artistSongItem = document.createElement("li");
                 artistSongItem.textContent = `${artistSong.title} - ${artistSong.artist}`;
                 artistSongItem.addEventListener("click", () => {
-                    const songElement = document.getElementById("song");
-                    songElement.src = artistSong.src;
-                    songElement.play();
-                    songTitle.textContent = artistSong.title;
-                    playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
+                    playSong(songs.indexOf(artistSong));
                 });
                 songListItems.appendChild(artistSongItem);
             });
@@ -132,11 +144,7 @@ function filterSongs() {
         const songItem = document.createElement("li");
         songItem.textContent = `${song.title} - ${song.artist}`;
         songItem.addEventListener("click", () => {
-            const songElement = document.getElementById("song");
-            songElement.src = song.src;
-            songElement.play();
-            songTitle.textContent = song.title;
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
+            playSong(songs.indexOf(song));
         });
         songListItems.appendChild(songItem);
     });
@@ -148,7 +156,7 @@ fillSongList();
 // Vincular la función de filtrado al evento de entrada del campo de búsqueda
 songSearch.addEventListener("input", filterSongs);
 
-/// Barra Lateral 
+// Barra Lateral 
 function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("active");
-        }
+    document.getElementById("sidebar").classList.toggle("active");
+}
