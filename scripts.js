@@ -18,7 +18,7 @@ const songs = [
     { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3", artist: "Imagine Dragons" },
     { title: "Aishite Aishite Aishite - ado", src: "Aishite Aishite Aishite - Ado.mp3", artist: "Ado" },
     { title: "unravel - tk from ling tosite sigure", src: "unravel - tk from ling tosite sigure.mp3", artist: "tk from ling tosite sigure" },
-    { title: "Imagine Dragons x J.I.D - Enemy", src: "Imagine Dragons x J.I.D - Enemy.mp3", artist: "Imagine Dragons" },
+    { title: "Imagine Dragons x J.I.D - Enemy", src: "enemyimaginedragonsjid.mp3", artist: "Imagine Dragons" },
 ];
 
 let currentSongIndex = 0; // Índice de la canción actual
