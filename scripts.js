@@ -19,6 +19,7 @@ const songs = [
     { title: "Aishite Aishite Aishite - ado", src: "Aishite Aishite Aishite - Ado.mp3", artist: "Ado" },
     { title: "unravel - tk from ling tosite sigure", src: "unravel - tk from ling tosite sigure.mp3", artist: "tk from ling tosite sigure" },
     { title: "Imagine Dragons x J.I.D - Enemy", src: "enemyimaginedragonsjid.mp3", artist: "Imagine Dragons" },
+    { title: "【Ado】- うっせぇわ", src: "【Ado】うっせぇわ - Ado.mp3", artist: "Ado" },
 ];
 
 let currentSongIndex = 0; // Índice de la canción actual
