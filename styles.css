@@ -26,12 +26,6 @@ body {
     color: #1DB954; /* Verde característico de Spotify */
 }
 
-i {
-  visibility: visible !important;
-  opacity: 1 !important;
-  font-family: "Font Awesome 6 Free" !important;
-}
-
 /* Estilo para la sección de la canción actual */
 #Titulaje h2 {
     text-align: left;
@@ -56,13 +50,12 @@ h3 {
     text-align: center;
     margin-top: 5px;
     padding: 10px;
-    border-radius: 50px; /* Bordes redondeados */
 }
 
 .DerechosTitle {
   color: gray;
-  position: relative;
-  top: 20%;
+  position: fixed;
+  top: 92%;
   font-size: 12px;
 }
 
@@ -137,6 +130,7 @@ input[type="range"]::-moz-range-thumb {
 
 .BuildVersionAT {
   color: gray;
+  position: fixed;
   font-size: 12px;
   margin-left: 10px;
   margin-top: 440px;
