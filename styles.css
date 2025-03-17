@@ -13,6 +13,11 @@ body {
     height: 100vh;
 }
 
+button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
 
 /* TODO LO DEMAS */
 
@@ -42,6 +47,15 @@ h3 {
     color: #FFFFFF;
     margin-top: 20px;
 }
+
+hr {
+  width: 160%;
+  margin-left: -55px;
+  text-align: left;
+  border-width: 0.1px;
+  border-color: gray;
+}
+
 
 /* Contenedor de los botones (centrado y ordenado) */
 .button-container {
@@ -197,7 +211,7 @@ input[type="range"]::-moz-range-thumb {
     background-color: #444;
 }
 
-/* Contadores dee Duracion */
+/* Contadores de Duracion */
 
 .contadorestiempo {
   position: relative;
@@ -210,10 +224,7 @@ input[type="range"]::-moz-range-thumb {
   margin-right: 230px;
 }
 
-hr {
-  width: 170%;
-  margin-left: -55px;
-  text-align: left;
-  border-width: 0.1px;
-  border-color: gray;
+#spec-icon {
+  margin-right: 10px;
+  
 }
