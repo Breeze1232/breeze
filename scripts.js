@@ -102,69 +102,68 @@ function fillSongList() {
     const songListItems = document.getElementById("songListItems");
     const artistListItems = document.getElementById("artistListItems");
 
-    songs.forEach(song => {
-        // Crear un elemento de lista para cada canción
-        const songItem = document.createElement("li");
-        songItem.textContent = `${song.title} - ${song.artist}`;
-        songItem.addEventListener("click", () => {
-            const songElement = document.getElementById("song");
-            songElement.src = song.src;
-            songElement.play();
-            songTitle.textContent = song.title;
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
-        });
-        songListItems.appendChild(songItem);
+    // Limpiar las listas existentes
+    songListItems.innerHTML = "";
+    artistListItems.innerHTML = "";
 
-        // Crear un elemento de lista para cada artista
+    // Llenar las listas de canciones y artistas
+    const artists = [...new Set(songs.map(song => song.artist))]; // Obtén artistas únicos
+
+    artists.forEach(artist => {
         const artistItem = document.createElement("li");
-        artistItem.textContent = song.artist;
+        artistItem.textContent = artist;
         artistItem.addEventListener("click", () => {
-            const artistSongs = songs.filter(s => s.artist === song.artist);
-            songListItems.innerHTML = ""; // Limpiar la lista actual
-            artistSongs.forEach(artistSong => {
-                const artistSongItem = document.createElement("li");
-                artistSongItem.textContent = `${artistSong.title} - ${artistSong.artist}`;
-                artistSongItem.addEventListener("click", () => {
-                    const songElement = document.getElementById("song");
-                    songElement.src = artistSong.src;
-                    songElement.play();
-                    songTitle.textContent = artistSong.title;
-                    playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
-                });
-                songListItems.appendChild(artistSongItem);
-            });
+            filterSongsByArtist(artist);
         });
         artistListItems.appendChild(artistItem);
     });
-}
 
-// Función para filtrar canciones
-function filterSongs() {
-    const searchQuery = songSearch.value.toLowerCase();
-    const songListItems = document.getElementById("songListItems");
-
-    // Filtrar las canciones basadas en el texto ingresado
-    const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(searchQuery));
-
-    // Limpiar la lista antes de agregar los elementos filtrados
-    songListItems.innerHTML = "";
-
-    // Agregar las canciones filtradas a la lista
-    filteredSongs.forEach(song => {
+    songs.forEach((song, index) => {
         const songItem = document.createElement("li");
         songItem.textContent = `${song.title} - ${song.artist}`;
         songItem.addEventListener("click", () => {
-            const songElement = document.getElementById("song");
-            songElement.src = song.src;
-            songElement.play();
-            songTitle.textContent = song.title;
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
+            currentSongIndex = index;
+            playSong(index);
         });
         songListItems.appendChild(songItem);
     });
 }
 
-// Llamar a la función para llenar la lista de canciones al cargar la página
+// Filtrar canciones por artista
+function filterSongsByArtist(artist) {
+    const songListItems = document.getElementById("songListItems");
+    songListItems.innerHTML = "";
+
+    const filteredSongs = songs.filter(song => song.artist === artist);
+    filteredSongs.forEach((song, index) => {
+        const songItem = document.createElement("li");
+        songItem.textContent = `${song.title} - ${song.artist}`;
+        songItem.addEventListener("click", () => {
+            currentSongIndex = index;
+            playSong(index);
+        });
+        songListItems.appendChild(songItem);
+    });
+}
+
+// Filtrar canciones por búsqueda
+function filterSongs() {
+    const query = songSearch.value.toLowerCase();
+    const songListItems = document.getElementById("songListItems");
+    songListItems.innerHTML = "";
+
+    songs.filter(song => song.title.toLowerCase().includes(query)).forEach((song, index) => {
+        const songItem = document.createElement("li");
+        songItem.textContent = `${song.title} - ${song.artist}`;
+        songItem.addEventListener("click", () => {
+            currentSongIndex = index;
+            playSong(index);
+        });
+        songListItems.appendChild(songItem);
+    });
+}
+
+// Llenar la lista de canciones y artistas al cargar
 fillSongList();
 
 // Vincular la función de filtrado al evento de entrada del campo de búsqueda
