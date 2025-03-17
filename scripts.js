@@ -25,17 +25,17 @@ function playSong(index) {
     audio.src = songs[index].src; // Establece la canción de la lista
     songTitle.textContent = songs[index].title; // Cambia el nombre de la canción
     audio.play();
-    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Usar el ícono de pausa
+    playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
 }
 
 // Reproducir o pausar la canción
 playPauseBtn.addEventListener("click", () => {
     if (audio.paused) {
         audio.play();
-        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Usar el ícono de pausa
+        playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
     } else {
         audio.pause();
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>'; // Usar el ícono de reproducción
+        playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; // Usar el ícono de reproducción
     }
 });
 
@@ -89,7 +89,7 @@ function fillSongList() {
             songElement.src = song.src;
             songElement.play();
             songTitle.textContent = song.title;
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Usar el ícono de pausa
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
         });
         songListItems.appendChild(songItem);
 
@@ -107,7 +107,7 @@ function fillSongList() {
                     songElement.src = artistSong.src;
                     songElement.play();
                     songTitle.textContent = artistSong.title;
-                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Usar el ícono de pausa
+                    playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
                 });
                 songListItems.appendChild(artistSongItem);
             });
@@ -136,7 +136,7 @@ function filterSongs() {
             songElement.src = song.src;
             songElement.play();
             songTitle.textContent = song.title;
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Usar el ícono de pausa
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
         });
         songListItems.appendChild(songItem);
     });
