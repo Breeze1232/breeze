@@ -9,12 +9,10 @@ const songListToggle = document.getElementById("songListToggle");
 const songList = document.getElementById("songList");
 const closeSongListBtn = document.getElementById("closeSongList");
 const songSearch = document.getElementById("songSearch"); // Campo de búsqueda
+const currentTime = document.getElementById("currentTime"); // Tiempo transcurrido
+const totalDuration = document.getElementById("totalDuration"); // Tiempo total de la canción
 
-// Mostrar tiempos
-const currentTimeDisplay = document.getElementById("currentTime");
-const totalDurationDisplay = document.getElementById("totalDuration");
-
-// Lista de canciones
+// Lista de canciones con sus títulos y artistas
 const songs = [
     { title: "Yo era seguidor de la grasa", src: "esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3", artist: "xTwo" },
     { title: "Imagine Dragons - Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3", artist: "Imagine Dragons" },
@@ -23,6 +21,13 @@ const songs = [
 ];
 
 let currentSongIndex = 0; // Índice de la canción actual
+
+// Función para formatear el tiempo en minutos:segundos
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
 
 // Función para reproducir una canción
 function playSong(index) {
@@ -61,15 +66,11 @@ audio.addEventListener("timeupdate", () => {
         const progressValue = (audio.currentTime / audio.duration) * 100;
         progress.value = progressValue;
 
-        // Mostrar el tiempo transcurrido
-        const currentMinutes = Math.floor(audio.currentTime / 60);
-        const currentSeconds = Math.floor(audio.currentTime % 60);
-        currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+        // Actualiza el tiempo transcurrido
+        currentTime.textContent = formatTime(audio.currentTime);
 
-        // Mostrar la duración total
-        const totalMinutes = Math.floor(audio.duration / 60);
-        const totalSeconds = Math.floor(audio.duration % 60);
-        totalDurationDisplay.textContent = `${totalMinutes}:${totalSeconds < 10 ? '0' : ''}${totalSeconds}`;
+        // Actualiza el tiempo total de la canción
+        totalDuration.textContent = formatTime(audio.duration);
     }
 });
 
@@ -79,10 +80,9 @@ progress.addEventListener("input", () => {
     audio.currentTime = progressValue;
 });
 
-// Cuando la canción termine, avanzar a la siguiente
+// Cambiar a la siguiente canción cuando la actual termine
 audio.addEventListener("ended", () => {
-    currentSongIndex = (currentSongIndex === songs.length - 1) ? 0 : currentSongIndex + 1; // Si estamos en la última canción, avanzamos a la primera
-    playSong(currentSongIndex);
+    skipForwardBtn.click(); // Reproduce la siguiente canción cuando termine
 });
 
 // Abrir o cerrar la lista de canciones
@@ -105,7 +105,11 @@ function fillSongList() {
         const songItem = document.createElement("li");
         songItem.textContent = `${song.title} - ${song.artist}`;
         songItem.addEventListener("click", () => {
-            playSong(songs.indexOf(song));
+            const songElement = document.getElementById("song");
+            songElement.src = song.src;
+            songElement.play();
+            songTitle.textContent = song.title;
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
         });
         songListItems.appendChild(songItem);
 
@@ -119,7 +123,11 @@ function fillSongList() {
                 const artistSongItem = document.createElement("li");
                 artistSongItem.textContent = `${artistSong.title} - ${artistSong.artist}`;
                 artistSongItem.addEventListener("click", () => {
-                    playSong(songs.indexOf(artistSong));
+                    const songElement = document.getElementById("song");
+                    songElement.src = artistSong.src;
+                    songElement.play();
+                    songTitle.textContent = artistSong.title;
+                    playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
                 });
                 songListItems.appendChild(artistSongItem);
             });
@@ -144,7 +152,11 @@ function filterSongs() {
         const songItem = document.createElement("li");
         songItem.textContent = `${song.title} - ${song.artist}`;
         songItem.addEventListener("click", () => {
-            playSong(songs.indexOf(song));
+            const songElement = document.getElementById("song");
+            songElement.src = song.src;
+            songElement.play();
+            songTitle.textContent = song.title;
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Usar el ícono de pausa
         });
         songListItems.appendChild(songItem);
     });
