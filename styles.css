@@ -26,6 +26,12 @@ body {
     color: #1DB954; /* Verde característico de Spotify */
 }
 
+i {
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-family: "Font Awesome 6 Free" !important;
+}
+
 /* Estilo para la sección de la canción actual */
 #Titulaje h2 {
     text-align: left;
