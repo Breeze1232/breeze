@@ -5,34 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RadioAG</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sideview.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="Icon.png" type="image/png">
 </head>
 <body>
-    <div>
-        <h1>Bienvenido a tu reproductor de música</h1>
+  
+  <!----- Cabezal Superior ---->
+  
+  <div class="header">
+  <button class="SidebarButton" onclick="toggleSidebar()">
+       <i class="fas fa-bars"></i>
+       </button>
+    <button id="songListToggle"><i class="fas fa-search"></i>
+        </button>
     </div>
-    <h2>Una radio random, un proyecto a futuro</h2>
 
-    <!-- Nombre de la canción -->
-    <h3 id="songTitle">Yo era seguidor de la grasa</h3>
-
-    <!-- Contenedor de botones -->
-    <div class="button-container">
-        <button id="skipBack">⏪</button>
-        <button id="playPauseBtn">▶️</button>
-        <button id="skipForward">⏩</button>
+  
+  <!---- Fin del Cabezal ------>
+  <!----- Barra Lateral ------->
+  
+  <div class="sidebar" id="sidebar">
+        <a href="#">Especificaciones</a>
+        <a href="#">Actualizaciones</a>
+        <a href="#">Configuración</a>
+        <a href="#">Créditos</a>
+        
+      <p class="BuildVersionAT">Build Version: Vintage (v.1.0)</p>
     </div>
+    
+  <!---- Fin de la barra lateral andy te amo bebesito ---->
+  
+<!---------------------------------->
+<!---------------------------------->
+<!---------------------------------->
+
+
+  <div id="Titulaje">
+    <h1>Breeze</h1>
+     <h2>Imagina y Explora</h2>
+       </div>
+       
+  <!-- Nombre de la canción -->
+ <h3 id="songTitle" class="TituloDeLaCancion">Yo era seguidor de la grasa</h3>
+ 
 
     <audio id="song" src="esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3"></audio>
 
-    <!-- Barra de progreso -->
+  <!-- Barra de progreso -->
     <div class="progress">
-        <input type="range" id="progress" min="0" max="100" value="0">
+     <input type="range" id="progress" min="0" max="100" value="0">
+       </div>
+
+    <!-- Contenedor de botones -->
+   <div class="button-container">
+     
+      <button id="skipBack" class="BotonDeSkipTrasero" <i class="fa-solid fa-backward"></i></button>
+       <button id="playPauseBtn" class="BotonDePausa" <i class="fa-solid fa-play"></i></button>
+           <button id="skipForward" class="BotonDeSkip" <i class="fa-solid fa-forward"></i></button>
     </div>
-
+    
     <!-- Mini botón para abrir la lista de canciones -->
-    <button id="songListToggle">Playlist 🎵 </button>
-
+    
     <!-- Pestaña con la lista de canciones y búsqueda -->
     <div id="songList" class="song-list">
         <!-- Botón para salir de la lista -->
@@ -51,6 +85,10 @@
         <ul id="songListItems"></ul>
     </div>
 
+ <!-- Derechos y Créditos Resumidos -->
+ <footer class="DerechosTitle">Andy y Gabriel • Todos los Derechos Reservados</footer>
+ 
+ 
     <script src="scripts.js"></script>
 </body>
 </html>
