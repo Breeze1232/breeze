@@ -6,85 +6,65 @@
     <title>RadioAG</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="sideview.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="icon" href="Icon.png" type="image/png">
 </head>
 <body>
   
   <!----- Cabezal Superior ---->
-  
   <div class="header">
-  <button class="SidebarButton" onclick="toggleSidebar()">
+    <button class="SidebarButton" onclick="toggleSidebar()">
        <i class="fas fa-bars"></i>
-       </button>
-    <button id="songListToggle"><i class="fas fa-search"></i>
-        </button>
-    </div>
-
+    </button>
+    <button id="songListToggle"><i class="fas fa-search"></i></button>
+  </div>
   
-  <!---- Fin del Cabezal ------>
-  <!----- Barra Lateral ------->
-  
+  <!-- Barra Lateral -->
   <div class="sidebar" id="sidebar">
-        <a href="#">Especificaciones</a>
-        <a href="#">Actualizaciones</a>
-        <a href="#">Configuración</a>
-        <a href="#">Créditos</a>
-        
-      <p class="BuildVersionAT">Build Version: Vintage (v.1.0)</p>
-    </div>
-    
-  <!---- Fin de la barra lateral andy te amo bebesito ---->
-  
-<!---------------------------------->
-<!---------------------------------->
-<!---------------------------------->
-
+    <a href="#">Especificaciones</a>
+    <a href="#">Actualizaciones</a>
+    <a href="#">Configuración</a>
+    <a href="#">Créditos</a>
+    <p class="BuildVersionAT">Build Version: Vintage (v.1.0)</p>
+  </div>
 
   <div id="Titulaje">
     <h1>Breeze</h1>
-     <h2>Imagina y Explora</h2>
-       </div>
-       
+    <h2>Imagina y Explora</h2>
+  </div>
+  
   <!-- Nombre de la canción -->
- <h3 id="songTitle" class="TituloDeLaCancion">Yo era seguidor de la grasa</h3>
- 
-
-    <audio id="song" src="esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3"></audio>
+  <h3 id="songTitle" class="TituloDeLaCancion">Yo era seguidor de la grasa</h3>
+  
+  <!-- Reproductor de audio -->
+  <audio id="song" src="esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" preload="auto"></audio>
 
   <!-- Barra de progreso -->
-    <div class="progress">
-     <input type="range" id="progress" min="0" max="100" value="0">
-       </div>
+  <div class="progress-container">
+    <span id="currentTime">0:00</span>
+    <input type="range" id="progress" min="0" max="100" value="0">
+    <span id="totalDuration">0:00</span>
+  </div>
 
-    <!-- Contenedor de botones -->
-   <div class="button-container">
-      <button id="skipBack" class="BotonDeSkipTrasero"> <i class="fa-solid fa-backward"></i></button>
-       <button id="playPauseBtn" class="BotonDePausa"> <i class="fa-solid fa-play"></i></button>
-           <button id="skipForward" class="BotonDeSkip"> <i class="fa-solid fa-forward"></i></button>
+  <!-- Contenedor de botones -->
+  <div class="button-container">
+    <button id="skipBack" class="BotonDeSkipTrasero"> <i class="fa-solid fa-backward"></i></button>
+    <button id="playPauseBtn" class="BotonDePausa"> <i class="fa-solid fa-play"></i></button>
+    <button id="skipForward" class="BotonDeSkip"> <i class="fa-solid fa-forward"></i></button>
+  </div>
+  
+  <div id="songList" class="song-list">
+    <button id="closeSongList">Cerrar Lista</button>
+    <input type="text" id="songSearch" placeholder="Buscar canción..." oninput="filterSongs()">
+    <div id="artistsList">
+      <h4>Artistas:</h4>
+      <ul id="artistListItems"></ul>
     </div>
-    
-    <!-- Mini botón para abrir la lista de canciones -->
-    
-    <!-- Pestaña con la lista de canciones y búsqueda -->
-    <div id="songList" class="song-list">
-        <!-- Botón para salir de la lista -->
-        <button id="closeSongList">Cerrar Lista</button>
+    <h4>Lista de Canciones:</h4>
+    <ul id="songListItems"></ul>
+  </div>
 
-        <input type="text" id="songSearch" placeholder="Buscar canción..." oninput="filterSongs()">
-        
-        <!-- Sección de listado por artistas -->
-        <div id="artistsList">
-            <h4>Artistas:</h4>
-            <ul id="artistListItems"></ul>
-        </div>
-
-        <!-- Listado de canciones -->
-        <h4>Lista de Canciones:</h4>
-        <ul id="songListItems"></ul>
-    </div>
- 
- 
-    <script src="scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
+
