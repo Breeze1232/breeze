@@ -22,7 +22,7 @@ body {
     text-align: left;
     font-size: 2.5rem;
     margin-bottom: 1px;
-    margin-left: -22px;
+    margin-left: -52px;
     color: #1DB954; /* Verde característico de Spotify */
 }
 
@@ -30,8 +30,9 @@ body {
 #Titulaje h2 {
     text-align: left;
     font-size: 1.5rem;
-    margin-left: -20px;
+    margin-left: -45px;
     margin-top: 1px;
+    margin-bottom: 25px;
     color: #B3B3B3;
 }
 
@@ -84,7 +85,7 @@ button:hover {
 }
 
 /* Estilo para la barra de progreso */
-.progress {
+.progress-container {
     width: 80%;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -124,8 +125,9 @@ input[type="range"]::-moz-range-thumb {
 
 .BuildVersionAT {
   color: gray;
+  position: relative;
   font-size: 12px;
-  margin-left: 10px;
+  margin-left: 16px;
   margin-top: 440px;
 }
 
@@ -195,4 +197,23 @@ input[type="range"]::-moz-range-thumb {
     background-color: #444;
 }
 
-/* Derechos Parrafo Inferior */
+/* Contadores de Duracion */
+
+.contadorestiempo {
+  position: relative;
+  display: block;
+  font-size: 13px;
+  text-align: left;
+}
+
+.contadorestiempo .DuracionActual {
+  margin-right: 210px;
+}
+
+hr {
+  width: 160%;
+  margin-left: -55px;
+  text-align: left;
+  border-width: 0.1px;
+  border-color: gray;
+}
