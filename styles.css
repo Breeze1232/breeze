@@ -207,11 +207,11 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .contadorestiempo .DuracionActual {
-  margin-right: 210px;
+  margin-right: 215px;
 }
 
 hr {
-  width: 160%;
+  width: 170%;
   margin-left: -55px;
   text-align: left;
   border-width: 0.1px;
