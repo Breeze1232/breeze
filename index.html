@@ -25,13 +25,15 @@
     <a href="#">Actualizaciones</a>
     <a href="#">Configuración</a>
     <a href="#">Créditos</a>
-    <p class="BuildVersionAT">Build Version: Vintage (v.1.0)</p>
+    <p class="BuildVersionAT">Build Version: Vintage (v.1.1)</p>
   </div>
 
   <div id="Titulaje">
     <h1>Breeze</h1>
     <h2>Imagina y Explora</h2>
+    <hr>
   </div>
+  
   
   <!-- Nombre de la canción -->
   <h3 id="songTitle" class="TituloDeLaCancion">Yo era seguidor de la grasa</h3>
@@ -41,10 +43,13 @@
 
   <!-- Barra de progreso -->
   <div class="progress-container">
-    <span id="currentTime">0:00</span>
     <input type="range" id="progress" min="0" max="100" value="0">
-    <span id="totalDuration">0:00</span>
   </div>
+  
+  <div class="contadorestiempo">
+    <span id="currentTime" class="DuracionActual">0:00</span>
+    <span id="totalDuration">0:00</span>
+    </div>
 
   <!-- Contenedor de botones -->
   <div class="button-container">
@@ -67,4 +72,3 @@
   <script src="scripts.js"></script>
 </body>
 </html>
-
