@@ -4,7 +4,7 @@ body {
     background-color: #121212;
     color: white;
     text-align: center;
-    margin: 0;
+    margin: 12px;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -13,17 +13,25 @@ body {
     height: 100vh;
 }
 
+
+/* TODO LO DEMAS */
+
+
 /* Estilo para el título principal */
-h1 {
+#Titulaje h1 {
+    text-align: left;
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
+    margin-left: -22px;
     color: #1DB954; /* Verde característico de Spotify */
 }
 
 /* Estilo para la sección de la canción actual */
-h2 {
+#Titulaje h2 {
+    text-align: left;
     font-size: 1.5rem;
-    margin-top: 10px;
+    margin-left: -20px;
+    margin-top: 1px;
     color: #B3B3B3;
 }
 
@@ -39,20 +47,34 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    background-color: #1DB954; /* Fondo verde */
+    text-align: center;
+    margin-top: 5px;
     padding: 10px;
     border-radius: 50px; /* Bordes redondeados */
 }
+
+.DerechosTitle {
+  color: gray;
+  position: relative;
+  top: 20%;
+  font-size: 12px;
+}
+
+.button-container .BotonDePausa {
+  background-color: #1DB954;
+  padding: 37px;
+}
+
+
 
 /* Estilo para los botones */
 button {
     background-color: transparent;
     border: none;
     padding: 10px;
-    margin: 0 15px; /* Espacio entre los botones */
+    margin: 0 10px; /* Espacio entre los botones */
     color: white;
-    font-size: 1.5rem; /* Un tamaño más grande para que los íconos sean fáciles de ver */
+    font-size: 1.3rem; /* Un tamaño más grande para que los íconos sean fáciles de ver */
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 50px; /* Tamaño de los botones */
@@ -72,7 +94,7 @@ button:hover {
 .progress {
     width: 80%;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 input[type="range"] {
@@ -103,6 +125,17 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
 }
 
+.TituloDeLaCancion {
+  font-size: 17px;
+}
+
+.BuildVersionAT {
+  color: gray;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 440px;
+}
+
 /* Estilo para el contenedor de la lista de canciones */
 .song-list {
     display: none; /* Inicialmente oculta */
@@ -115,7 +148,7 @@ input[type="range"]::-moz-range-thumb {
     color: white;
     padding: 20px;
     overflow-y: auto;
-    z-index: 10;
+    z-index: 10000;
     text-align: left;
 }
 
@@ -168,3 +201,5 @@ input[type="range"]::-moz-range-thumb {
 #artistListItems li:hover {
     background-color: #444;
 }
+
+/* Derechos Parrafo Inferior */
