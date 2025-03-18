@@ -23,7 +23,7 @@ const songsByArtist = {
     ],
     "Ado": [
         { title: "Aishite Aishite Aishite", src: "Aishite Aishite Aishite - Ado.mp3" },
-        { title: "うっせぇわ (Usseewa)", src: "Useewa.mp3" }
+        { title: "うっせぇわ (Usseewa)", src: "UseewaAdo.mp3" }
     ],
     "tk from ling tosite sigure": [
         { title: "Unravel", src: "Unravel.mp3" }
