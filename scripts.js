@@ -15,7 +15,7 @@ const totalDuration = document.getElementById("totalDuration");
 // Listaa de canciones organizadas por artista
 const songsByArtist = {
     "xTwo": [
-        { title: "Yo era seguidor de la grasa", src: "music/esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" }
+        { title: "Yo era seguidor de la grasa", src: "breeze/music/esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" }
     ],
     "Imagine Dragons": [
         { title: "Take Me To The Beach (feat. Ado)", src: "breeze/music/Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" },
