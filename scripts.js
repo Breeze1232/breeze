@@ -12,7 +12,7 @@ const songSearch = document.getElementById("songSearch");
 const currentTime = document.getElementById("currentTime");
 const totalDuration = document.getElementById("totalDuration");
 
-// Lista de canciones organizadas por artista
+// Listaa de canciones organizadas por artista
 const songsByArtist = {
     "xTwo": [
         { title: "Yo era seguidor de la grasa", src: "music/esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" }
