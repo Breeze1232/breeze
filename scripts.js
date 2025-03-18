@@ -15,18 +15,18 @@ const totalDuration = document.getElementById("totalDuration");
 // Listaa de canciones organizadas por artista
 const songsByArtist = {
     "xTwo": [
-        { title: "Yo era seguidor de la grasa", src: "music/esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" }
+        { title: "Yo era seguidor de la grasa", src: "esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" }
     ],
     "Imagine Dragons": [
-        { title: "Take Me To The Beach (feat. Ado)", src: "breeze/music/Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" },
-        { title: "Enemy (feat. J.I.D)", src: "music/enemyimaginedragonsjid.mp3" }
+        { title: "Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" },
+        { title: "Enemy (feat. J.I.D)", src: "enemyimaginedragonsjid.mp3" }
     ],
     "Ado": [
-        { title: "Aishite Aishite Aishite", src: "music/Aishite Aishite Aishite - Ado.mp3" },
-        { title: "うっせぇわ", src: "music/【Ado】うっせぇわ - Ado.mp3" }
+        { title: "Aishite Aishite Aishite", src: "Aishite Aishite Aishite - Ado.mp3" },
+        { title: "うっせぇわ", src: "【Ado】うっせぇわ - Ado.mp3" }
     ],
     "tk from ling tosite sigure": [
-        { title: "Unravel", src: "music/unravel - tk from ling tosite sigure.mp3" }
+        { title: "Unravel", src: "unravel - tk from ling tosite sigure.mp3" }
     ]
 };
 
