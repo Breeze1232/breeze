@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { title: "Yo era seguidor de la grasa", src: "prueba2.mp3" }
         ],
         "Imagine Dragons": [
-            { title: "Take Me To The Beach (feat. Ado)", src: "music/Imagine Dragons - Take Me To The Beach (feat. Ado).mp3" },
+            { title: "Take Me To The Beach (feat. Ado)", src: "Imagine Dragons - Take Me To The Beach (feat. Ado) (Official Lyric Video) - ImagineDragonsVEVO.mp3" },
             { title: "Enemy (feat. J.I.D)", src: "music/enemyimaginedragonsjid.mp3" }
         ],
         "Ado": [
