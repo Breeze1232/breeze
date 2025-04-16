@@ -1,230 +1,61 @@
-/* Estilo general de la página */
+/* Generales de la Sección Home */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: white;
-    text-align: center;
-    margin: 12px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-button:focus, button:active {
-  outline: none !important;
-  box-shadow: none !important;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* TODO LO DEMAS */
-
-
-/* Estilo para el título principal */
-#Titulaje h1 {
-    text-align: left;
-    font-size: 2.5rem;
-    margin-bottom: 1px;
-    margin-left: -52px;
-    color: #1DB954; /* Verde característico de Spotify */
-}
-
-/* Estilo para la sección de la canción actual */
-#Titulaje h2 {
-    text-align: left;
-    font-size: 1.5rem;
-    margin-left: -45px;
-    margin-top: 1px;
-    margin-bottom: 25px;
-    color: #B3B3B3;
-}
-
-/* Estilo para el nombre de la canción */
-h3 {
-    font-size: 1.2rem;
-    color: #FFFFFF;
-    margin-top: 20px;
-}
-
-hr {
-  width: 160%;
-  margin-left: -55px;
-  text-align: left;
-  border-width: 0.1px;
-  border-color: gray;
+  margin: 20px;
+  color: whitesmoke;
+  background-color: #141414;
+  font-family: sans-serif;
+  text-decoration: none !important;
+  overflow-x: hidden;
 }
 
 
-/* Contenedor de los botones (centrado y ordenado) */
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 5px;
-    padding: 10px;
+.titulo {
+  margin: 20px;
 }
 
-
-.button-container .BotonDePausa {
-  background-color: #1DB954;
-  padding: 37px;
+.carrusel-container {
+  display: flex;
+  overflow-x: auto;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 20px;
+  -webkit-overflow-scrolling: touch;
 }
 
-
-
-/* Estilo para los botones */
-button {
-    background-color: transparent;
-    border: none;
-    padding: 10px;
-    margin: 0 10px; /* Espacio entre los botones */
-    color: white;
-    font-size: 1.3rem; /* Un tamaño más grande para que los íconos sean fáciles de ver */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 50px; /* Tamaño de los botones */
-    height: 50px;
-    border-radius: 50%; /* Botones redondos */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.item {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 160px;
+  box-shadow: 0 0px 23px rgba(0, 0, 80, 0.6);
+  border-radius: 10px;
+  background-size: cover;
+  text-decoration: none;
+  margin-right: 15px;
+  background-position: center;
+  transition: transform 0.2s ease;
 }
 
-/* Efecto hover para los botones */
-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.item:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
-/* Estilo para la barra de progreso */
-.progress-container {
-    width: 80%;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.titulo-item {
+  font-size: 14px;
+text-decoration: none !important;
+  color: #eee;
+  margin-right: 15px;
+  margin-top: 13px;
+  text-align: center;
 }
 
-input[type="range"] {
-    width: 100%;
-    height: 5px;
-    background: #333;
-    border-radius: 5px;
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: #1DB954;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background: #1DB954;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.TituloDeLaCancion {
-  font-size: 17px;
-}
-
-.BuildVersionAT {
+.NoDisponibleSign {
+  padding-left: 15px;
   color: gray;
-  position: relative;
-  font-size: 12px;
-  margin-left: 16px;
-  margin-top: 440px;
+  font-size: 14px;
+  margin-top: -5px;
+  padding-bottom: 20px;
 }
 
-/* Estilo para el contenedor de la lista de canciones */
-.song-list {
-    display: none; /* Inicialmente oculta */
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 20px;
-    overflow-y: auto;
-    z-index: 10000;
-    text-align: left;
-}
-
-.song-list.visible {
-    display: block; /* Cuando la clase 'visible' se aplica, se muestra */
-}
-
-/* Estilo para la búsqueda de canciones */
-.song-list input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-/* Estilo para el listado de canciones */
-.song-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.song-list li {
-    padding: 10px;
-    border-bottom: 1px solid #444;
-    cursor: pointer;
-}
-
-.song-list li:hover {
-    background-color: #444;
-}
-
-/* Estilo para el listado de artistas */
-#artistsList {
-    margin-top: 20px;
-}
-
-#artistListItems {
-    list-style-type: none;
-    padding: 0;
-}
-
-#artistListItems li {
-    padding: 5px;
-    cursor: pointer;
-}
-
-#artistListItems li:hover {
-    background-color: #444;
-}
-
-/* Contadores de Duracion */
-
-.contadorestiempo {
-  position: relative;
-  display: block;
-  font-size: 13px;
-  text-align: left;
-}
-
-.contadorestiempo .DuracionActual {
-  margin-right: 230px;
-}
-
-#spec-icon {
-  margin-right: 10px;
-  
-}
