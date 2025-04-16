@@ -31,7 +31,7 @@ body {
   box-shadow: 0 0px 23px rgba(0, 0, 80, 0.6);
   border-radius: 10px;
   background-size: cover;
-  text-decoration: none;
+  text-decoration: none !important;
   margin-right: 15px;
   background-position: center;
   transition: transform 0.2s ease;
@@ -44,13 +44,12 @@ body {
 
 .titulo-item {
   font-size: 14px;
-  text-decoration: none;
+text-decoration: none !important;
   color: #eee;
   margin-right: 15px;
   margin-top: 13px;
+  text-decoration-style: none;
   text-align: center;
-  background-color: transparent;
-  border: 3px solid #141414;
 }
 
 .NoDisponibleSign {
@@ -60,6 +59,8 @@ body {
   margin-top: -5px;
   padding-bottom: 20px;
 }
+
+
 a.card {
   text-decoration: none !important;
   color: inherit !important;
@@ -69,4 +70,3 @@ a.card .titulo-item {
   text-decoration: none !important;
   color: inherit !important;
 }
-
