@@ -44,7 +44,7 @@ body {
 
 .titulo-item {
   font-size: 14px;
-text-decoration: none !important;
+  text-decoration: none;
   color: #eee;
   margin-right: 15px;
   margin-top: 13px;
