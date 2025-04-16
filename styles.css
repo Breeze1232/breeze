@@ -49,6 +49,8 @@ body {
   margin-right: 15px;
   margin-top: 13px;
   text-align: center;
+  background-color: transparent;
+  border: 3px solid #141414;
 }
 
 .NoDisponibleSign {
