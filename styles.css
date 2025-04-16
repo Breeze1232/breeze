@@ -60,4 +60,13 @@ body {
   margin-top: -5px;
   padding-bottom: 20px;
 }
+a.card {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+a.card .titulo-item {
+  text-decoration: none !important;
+  color: inherit !important;
+}
 
