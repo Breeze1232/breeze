@@ -1,74 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RadioAG</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="sideview.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="icon" href="Icon.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title></title>
 </head>
+
 <body>
+  <h3>Breeze</h3>
+  <h4>Fecha y Hora</h4>
   
-  <!----- Cabezal Superior ---->
-  <div class="header">
-    <button class="SidebarButton" onclick="toggleSidebar()">
-       <i class="fas fa-bars"></i>
-    </button>
-    <button id="songListToggle"><i class="fas fa-search"></i></button>
+<!------------------------------>
+  
+  <h2>Últimas Añadidas</h2>
+  
+  <div class="carrusel-container" id="carrusel">
+     <a href="https://example.com/1" target="_blank" class="card">
+      <div class="item" class="WastelandDisplay" style="background-image: url('displaycards/WastelandArcaneDisplayCard.jpeg');"></div>
+      <p class="titulo-item">"Wasteland"</p>
+      
+    </a>
+    <a href="https://example.com/2" target="_blank" class="card">
+      <div class="item" style="background-image: url('displaycards/ShowAdoDisplayCard.jpg');"></div>
+      <p class="titulo-item">"Show"</p>
+    </a>
+    <a href="https://example.com/3" target="_blank" class="card">
+      <div class="item" style="background-image: url('displaycards/EnemyIDDisplayCards.png');"></div>
+      <p class="titulo-item">Enemy (ft. JID)</p>
+    </a>
+    <a href="https://example.com/4" target="_blank" class="card">
+      <div class="item" style="background-image: url('https://picsum.photos/id/1020/200/300');"></div>
+      <p class="titulo-item">Uff</p>
+    </a>
   </div>
   
-  <!-- Barra Lateral -->
-  <div class="sidebar" id="sidebar">
-    <a href="#"><i id="spec-icon" class="fa-solid fa-laptop"></i>Especificaciones</a>
-    <a href="#"><i id="spec-icon" class="fa-solid fa-file-pen"></i>Actualizaciones</a>
-    <a href="#"><i id="spec-icon" class="fa-solid fa-wand-magic-sparkles"></i>Créditos</a>
-    <a href="#"><i id="spec-icon" class="fa-solid fa-gear"></i>Configuración</a>
-    <p class="BuildVersionAT">Build Version: Vintage (v.1.2)</p>
-  </div>
-
-  <div id="Titulaje">
-    <h1>Breeze</h1>
-    <h2>Imagina y Explora</h2>
-    <hr>
-  </div>
+  <h2>Mis Favoritas</h2>
+  <p class="NoDisponibleSign">No has agregado nada aún.  (Función no disponible)</p>
+  <h2>Más Populares</h2>
+  <h2>Clásicos</h2>
   
+  <p>andy si ves esto preparate porque voy a balacearte</p>
   
-  <!-- Nombre de la canción -->
-  <h3 id="songTitle" class="TituloDeLaCancion">Yo era seguidor de la grasa</h3>
+<script src="script.js"></script>
   
-  <!-- Reproductor de audio -->
-  <audio id="song" src="esta canción para los fanáticos, es una acaricia al alma - xTwo..mp3" preload="auto"></audio>
-
-  <!-- Barra de progreso -->
-  <div class="progress-container">
-    <input type="range" id="progress" min="0" max="100" value="0">
-  </div>
-  
-  <div class="contadorestiempo">
-    <span id="currentTime" class="DuracionActual">0:00</span>
-    <span id="totalDuration">0:00</span>
-    </div>
-
-  <!-- Contenedor de botones -->
-  <div class="button-container">
-    <button id="skipBack" class="BotonDeSkipTrasero"> <i class="fa-solid fa-backward"></i></button>
-    <button id="playPauseBtn" class="BotonDePausa"> <i class="fa-solid fa-play"></i></button>
-    <button id="skipForward" class="BotonDeSkip"> <i class="fa-solid fa-forward"></i></button>
-  </div>
-  
-  <div id="songList" class="song-list">
-    <button id="closeSongList">✖️</button>
-    <input type="text" id="songSearch" placeholder="Buscar canción..." oninput="filterSongs()">
-    <div id="artistsList">
-      <h4>Artistas:</h4>
-      <ul id="artistListItems"></ul>
-    </div>
-    <h4>Lista de Canciones:</h4>
-    <ul id="songListItems"></ul>
-  </div>
-
-  <script src="scripts.js"></script>
 </body>
+
 </html>
