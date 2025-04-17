@@ -28,7 +28,6 @@ body {
   flex: 0 0 auto;
   width: 120px;
   height: 160px;
-  box-shadow: 0 0px 23px rgba(0, 0, 80, 0.6);
   border-radius: 10px;
   background-size: cover;
   text-decoration: none !important;
@@ -55,7 +54,7 @@ text-decoration: none !important;
 .NoDisponibleSign {
   padding-left: 15px;
   color: gray;
-  font-size: 14px;
+  font-size: 15px;
   margin-top: -5px;
   padding-bottom: 20px;
 }
@@ -69,4 +68,22 @@ a.card {
 a.card .titulo-item {
   text-decoration: none !important;
   color: inherit !important;
+}
+
+.card {
+  transition: all 0.5s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card.saliente {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+footer {
+  text-align: center;
+  padding-top: 15px;
+  color: gray;
+  font-size: 14px;
 }
