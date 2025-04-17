@@ -1,0 +1,18 @@
+.arcanewastelanddisplay {
+  box-shadow: 0 0px 23px rgba(0, 0, 80, 0.6);
+}
+
+.adoshowdisplay {
+box-shadow: 0 0px 23px rgba(212, 175, 55, 0.2);
+}
+
+.idenemydisplay {
+  box-shadow: 0 0px 23px rgba(128, 0, 64, 0.3);
+}
+
+.adotakemetothebeachdisplay {
+box-shadow: 
+  0 0px 20px rgba(28, 74, 64, 0.3),   /* azul verdoso más oscuro y tenue */
+  0 0px 25px rgba(130, 123, 113, 0.25);
+
+}
