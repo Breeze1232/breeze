@@ -87,3 +87,10 @@ a.card .titulo-item {
   color: gray;
   font-size: 14px;
 }
+
+.footercredits {
+  text-align: center;
+  margin-top: -5px;
+  color: gray;
+  font-size: 14px;
+}
