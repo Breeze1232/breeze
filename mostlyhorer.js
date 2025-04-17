@@ -60,3 +60,13 @@ allCards.forEach(card => {
 window.addEventListener('load', () => {
   updatePopularSongs();
 });
+
+function starProtector() {
+      document.getElementById("protector").style.display = "block";
+      document.getElementById("PTfondoOscuro").style.display = "block";
+    }
+
+    function downProtector() {
+      document.getElementById("protector").style.display = "none";
+      document.getElementById("PTfondoOscuro").style.display = "none";
+    }
