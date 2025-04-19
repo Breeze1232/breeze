@@ -1,4 +1,4 @@
-/* Generales de la Sección Homee */
+/* Generales de la Sección Home */
 
 body {
   margin: 20px;
@@ -22,6 +22,15 @@ body {
   gap: 10px;
   padding: 20px;
   -webkit-overflow-scrolling: touch;
+}
+
+.btnp {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  position: fixed;
+  top: 673px;
+  left: -5px;
 }
 
 .item {
@@ -113,13 +122,47 @@ a.card .titulo-item {
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 5;
     }
-    
-.btnp {
+
+
+.lastestitem {
+   flex: 0 0 auto;
+  width: 275px;
+  height: 160px;
+  border-radius: 10px;
+  background-size: cover;
+  text-decoration: none !important;
+  margin-right: 15px;
+  background-position: center;
+  transition: transform 0.2s ease;
+}
+
+.lastestitem:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.titulo-lastestitem {
+  font-size: 14px;
+text-decoration: none !important;
+  color: #eee;
+  margin-right: 15px;
+  margin-top: 13px;
+  text-decoration-style: none;
+  text-align: center;
+}
+
+/* Biblioteca */
+
+.librarysection {
+  border: solid;
+  border-width: 2px;
+  padding: 20px;
+  font-size: 14.5px;
+  border-radius: 10px;
+  border-color: #3b3b3b;
   background-color: transparent;
-  border: none;
-  padding: 10px;
-  position: fixed;
-  top: 673px;
-  left: -5px;
-  
+}
+
+.MisFavoritasTitulo {
+  margin-top: 5px;
 }
