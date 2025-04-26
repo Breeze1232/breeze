@@ -167,48 +167,4 @@ text-decoration: none !important;
   margin-top: 5px;
 }
 /* SISTEMA DE SESION */
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
 
-.login-container h2 {
-    text-align: center;
-}
-
-.login-container input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-container button:hover {
-    background-color: #45a049;
-}
-
-.error {
-    color: red;
-    text-align: center;
-}
-
-.main-content {
-    display: block;
-    width: 100%;
-    padding: 20px;
-}
