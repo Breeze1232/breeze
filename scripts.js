@@ -196,18 +196,3 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleSidebar() {
     document.getElementById("sidebar").classList.toggle("active");
 }
-const storedPassword = "follemostodosajoseo1"; // Cambia esta contraseña por la que desees usar
-
-function login() {
-    const inputPassword = document.getElementById("password").value;
-    const errorDiv = document.getElementById("error");
-
-    if (inputPassword === storedPassword) {
-        // Si la contraseña es correcta
-        document.getElementById("login-section").style.display = "none"; // Ocultamos el formulario de inicio de sesión
-        document.getElementById("main-section").style.display = "block"; // Mostramos el contenido principal
-    } else {
-        // Si la contraseña es incorrecta
-        errorDiv.textContent = "Contraseña incorrecta, intenta nuevamente.";
-    }
-}
