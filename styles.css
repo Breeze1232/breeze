@@ -125,7 +125,7 @@ a.card .titulo-item {
 
 
 .lastestitem {
-   flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 275px;
   height: 160px;
   border-radius: 10px;
@@ -167,4 +167,18 @@ text-decoration: none !important;
   margin-top: 5px;
 }
 /* SISTEMA DE SESION */
-
+.box1 {
+  width: 450px;
+  height: 200px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 25px;
+  margin-left: 540px;
+  margin-top: 100px;
+}
+.breeze {
+  font-family: sans-serif;
+  font-style: italic;
+  text-align: center;
+  margin-top: 100px;
+}
